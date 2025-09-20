@@ -12,7 +12,6 @@ sudo apt install -y snapd
 sudo snap install core
 sudo snap refresh core
 sudo snap install pycharm-community --classic
-# Optional: sudo snap install pycharm-professional --classic
 
 ### 2. Install Homebrew (Linuxbrew)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
