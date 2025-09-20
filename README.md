@@ -1,4 +1,3 @@
-: '
 # Python Playwright Automation Framework
 
 A Python automation framework using Playwright and Pytest, featuring a Page Object Model (POM), test reporting, and organized structure for scalable web UI testing.
@@ -49,4 +48,3 @@ Notes:
 - Keep credentials or sensitive data out of the repo; use environment variables or .env files.
 - Organize tests and page objects according to the recommended directory structure for scalability.
 - Use conftest.py to define reusable fixtures like browser setup/teardown.
-'
