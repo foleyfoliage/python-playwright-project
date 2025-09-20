@@ -1,86 +1,52 @@
-#!/bin/bash
-# Full Environment Setup and Recommended Project Structure for Python Playwright Project on Debian 12
+: '
+# Python Playwright Automation Framework
 
-set -e  # Exit immediately if any command fails
+A Python automation framework using Playwright and Pytest, featuring a Page Object Model (POM), test reporting, and organized structure for scalable web UI testing.
 
-echo "=== Updating package lists ==="
+---
+
+## Environment Setup on Debian 12
+
+### 1. Install Snap and PyCharm
 sudo apt update
-
-echo "=== Installing Snap ==="
 sudo apt install -y snapd
-
-echo "=== Enabling classic Snap support ==="
 sudo snap install core
 sudo snap refresh core
-
-echo "=== Installing PyCharm Community Edition ==="
 sudo snap install pycharm-community --classic
 # Optional: sudo snap install pycharm-professional --classic
 
-echo "=== Installing Homebrew (Linuxbrew) ==="
+### 2. Install Homebrew (Linuxbrew)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo "=== Installing Python3 and pip ==="
+### 3. Install Python3 and pip
 sudo apt install -y python3 python3-pip
-
-echo "=== Checking Python and pip versions ==="
 python3 --version
 pip3 --version
 
-# -------------------------
-# Recommended Project Directory Structure
-# -------------------------
-# python-playwright-project/
-# ├── tests/                  # Your test cases
-# │   ├── test_login.py
-# │   ├── test_checkout.py
-# │   └── ...
-# ├── pages/                  # Page Object Models
-# │   ├── login_page.py
-# │   ├── home_page.py
-# │   └── ...
-# ├── utils/                  # Utility/helper functions
-# │   ├── logger.py
-# │   ├── config_reader.py
-# │   └── ...
-# ├── reports/                # Test reports
-# ├── screenshots/            # Screenshots on failure
-# ├── requirements.txt        # Python dependencies
-# ├── playwright.config.py    # Playwright configuration
-# ├── pytest.ini              # Pytest configuration
-# └── .gitignore              # Ignored files
-
-echo "=== Creating Python project directory and virtual environment ==="
-PROJECT_DIR=~/PycharmProjects/python-playwright-project
-mkdir -p "$PROJECT_DIR"
-cd "$PROJECT_DIR"
-
+### 4. Create and Activate Virtual Environment
+cd ~/PycharmProjects/python-playwright-project
 python3 -m venv venv
-
-echo "=== Activating virtual environment ==="
 source venv/bin/activate
 
-echo "=== Installing project dependencies ==="
-if [ -f requirements.txt ]; then
-    pip install -r requirements.txt
-else
-    echo "requirements.txt not found! Creating a default one..."
-    cat <<EOL > requirements.txt
+### 5. Install Project Dependencies
+pip install -r requirements.txt
+
+Example requirements.txt:
 playwright
 pytest
 pytest-html
 pytest-xdist
-EOL
-    pip install -r requirements.txt
-fi
 
-echo "=== Creating standard directories ==="
-mkdir -p tests pages utils reports screenshots
-
-echo "=== Installing Playwright browsers ==="
+### 6. Install Playwright Browsers
 python -m playwright install
 
-echo "=== Setup Complete ==="
-echo "Activate your virtual environment with: source venv/bin/activate"
-echo "Follow the recommended project structure for organizing tests, pages, and utilities."
-echo "Run tests using pytest or your preferred method."
+### 7. Run Tests
+source venv/bin/activate
+pytest
+pytest --html=reports/report.html
+
+Notes:
+- Keep credentials or sensitive data out of the repo; use environment variables or .env files.
+- Organize tests and page objects according to the recommended directory structure for scalability.
+- Use conftest.py to define reusable fixtures like browser setup/teardown.
+'

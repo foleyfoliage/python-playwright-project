@@ -1,17 +1,9 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
 # Virtual environments
 .venv/
 venv/
 env/
-ENV/
-env.bak/
-venv.bak/
 
-# Playwright browser downloads
+# Playwright browsers
 playwright/.local-browsers/
 
 # Test reports and screenshots
@@ -21,48 +13,20 @@ screenshots/
 # Pytest cache
 .pytest_cache/
 
-# Coverage reports
-.coverage
-.coverage.*
-htmlcov/
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-
-# IDEs
-.idea/
-.vscode/
-.spyderproject
-.spyproject
-
-# Python packaging
-*.egg-info/
-*.egg
-dist/
-build/
-*.manifest
-*.spec
-
 # Environment files
 .env
 .envrc
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+# IDEs
+.idea/
+.vscode/
 
-# Mypy cache
+# Caches
 .mypy_cache/
 .dmypy.json
-dmypy.json
-
-# Type checkers
 .pyre/
 .pytype/
-
-# Cython debug symbols
 cython_debug/
 
-# Cursor / AI editor files
-.cursorignore
-.cursorindexingignore
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
